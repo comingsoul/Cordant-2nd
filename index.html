@@ -18,27 +18,20 @@
       min-height: 100vh;
     }
 
-    /* 초대장 전체 카드 용기 */
-    .card-container {
-      position: relative;
-      width: 100%;
-      max-width: 430px;
-      margin: 0 auto;
-      background: #ffffff;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
+.card-container {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  background: #ffffff;
+  /* overflow: hidden; 이 속성이 이미지 잘림을 유발할 수 있으므로 제거하거나 확인 필요 */
+}
 
-    /* 내장 이미지 화질 선명도 보정 */
-    .card-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      image-rendering: -webkit-optimize-contrast;
-      image-rendering: crisp-edges;
-      transform: translateZ(0);
-      backface-visibility: hidden;
-    }
+.card-img {
+  width: 100%;
+  height: auto; /* 세로 길이에 맞춰 자동으로 늘어나도록 설정 */
+  display: block;
+}
 
     /* 1) 지도 영역 오버레이 */
     .map-overlay {
