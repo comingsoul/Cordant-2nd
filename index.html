@@ -22,24 +22,25 @@
     .card-container {
       position: relative;
       width: 100%;
-      max-width: 430px; /* 모바일 너비 기준 */
+      max-width: 430px; /* 모바일 기준 너비 */
       margin: 0 auto;
       background: #ffffff;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
     }
 
-    /* 배경 통이미지 */
+    /* 배경 JPG 이미지 */
     .card-img {
       width: 100%;
+      height: auto;
       display: block;
     }
 
-    /* 1) 이미지 내 지도 영역 오버레이 */
+    /* 1) 지도 영역 오버레이 */
     .map-overlay {
       position: absolute;
-      top: 72.7%;     /* 이미지 내 빈 상자 시작 Y축 위치 */
-      left: 9.1%;     /* 이미지 내 빈 상자 시작 X축 위치 */
+      top: 72.7%;     /* 이미지 내 빈 상자 Y축 위치 */
+      left: 9.1%;     /* 이미지 내 빈 상자 X축 위치 */
       width: 81.8%;   /* 빈 상자 너비 비율 */
       height: 11.8%;  /* 빈 상자 높이 비율 */
       border-radius: 12px;
@@ -52,11 +53,11 @@
       border: none;
     }
 
-    /* 2) 이미지 내 네비 버튼 영역 오버레이 */
+    /* 2) 네비게이션 버튼 영역 오버레이 */
     .btn-overlay-group {
       position: absolute;
-      top: 85.6%;     /* 이미지 내 버튼 시작 Y축 위치 */
-      left: 9.1%;     /* 이미지 내 버튼 시작 X축 위치 */
+      top: 85.6%;     /* 이미지 내 버튼 Y축 위치 */
+      left: 9.1%;     /* 이미지 내 버튼 X축 위치 */
       width: 81.8%;   /* 버튼 전체 영역 너비 */
       height: 2.6%;   /* 버튼 높이 */
       display: flex;
@@ -80,18 +81,18 @@
 <body>
 
   <div class="card-container">
-    <!-- 원본 초대장 이미지를 지정합니다 -->
-    <img src="card.png" alt="2부 초대장" class="card-img">
+    <!-- JPG 고해상도 이미지를 지정합니다 -->
+    <img src="card.jpg" alt="2부 초대장" class="card-img">
 
-    <!-- 지도 위치 (실제 카카오 지도가 들어갑니다) -->
+    <!-- 지도 위치 (지동 110번지 정확한 도로명 주소 검색 고정) -->
     <div class="map-overlay">
       <iframe 
         src="https://m.map.kakao.com/actions/searchView?q=%EA%B2%BD%EA%B8%B0%20%EC%88%98%EC%9B%90%EC%8B%9C%20%ED%8C%94%EB%8B%AC%EA%B5%AC%20%EC%B0%BD%EB%A3%A1%EB%AC%B8%EB%A1%9C%20110"
-        title="카페 헤이랑 지도">
+        title="카페 헤이랑 위치 지도">
       </iframe>
     </div>
 
-    <!-- 버튼 터치 영역 (이미지 속 카카오맵/네이버지도/티맵 버튼 위치) -->
+    <!-- 버튼 터치 영역 -->
     <div class="btn-overlay-group">
       <button class="nav-btn" onclick="openNav('kakao')" title="카카오맵"></button>
       <button class="nav-btn" onclick="openNav('naver')" title="네이버지도"></button>
@@ -100,15 +101,14 @@
   </div>
 
   <script>
-    const VENUE_NAME = '카페 헤이랑';
+    // 검색할 도로명 주소 고정
     const VENUE_ADDR = '경기 수원시 팔달구 창룡문로 110';
 
     function openNav(app) {
-      const nameQ = encodeURIComponent(VENUE_NAME);
       const addrQ = encodeURIComponent(VENUE_ADDR);
 
       if (app === 'kakao') {
-        location.href = `https://map.kakao.com/link/search/${nameQ}`;
+        location.href = `https://map.kakao.com/link/search/${addrQ}`;
         return;
       }
 
