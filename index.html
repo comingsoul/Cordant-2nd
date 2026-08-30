@@ -18,20 +18,20 @@
       min-height: 100vh;
     }
 
-    .card-container {
-      position: relative;
-      width: 100%;
-      max-width: 430px;
-      margin: 0 auto;
-      background: #ffffff;
-      /* 이미지 잘림 방지를 위해 overflow 속성을 제거하고 자연스럽게 늘어나도록 설정 */
-    }
+.card-container {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  background: #ffffff;
+  height: auto !important; /* 높이 강제 초기화 */
+}
 
-    .card-img {
-      width: 100%;
-      height: auto; /* 세로 길이에 맞춰 자동으로 늘어나도록 설정 */
-      display: block;
-    }
+.card-img {
+  width: 100% !important;
+  height: auto !important; /* 비율 유지 강제 */
+  display: block !important;
+}
 
     /* 1) 지도 영역 오버레이 */
     .map-overlay {
