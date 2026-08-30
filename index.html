@@ -22,19 +22,18 @@
     .card-container {
       position: relative;
       width: 100%;
-      max-width: 430px; /* 모바일 폭 기준 */
+      max-width: 430px;
       margin: 0 auto;
       background: #ffffff;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
     }
 
-    /* HTML 내부에 데이터로 포함된 고해상도 이미지 */
+    /* 이미지 화질 선명도 보정 */
     .card-img {
       width: 100%;
       height: auto;
       display: block;
-      /* 텍스트 선명도 보정 CSS */
       image-rendering: -webkit-optimize-contrast;
       image-rendering: crisp-edges;
       transform: translateZ(0);
@@ -44,10 +43,10 @@
     /* 1) 지도 영역 오버레이 */
     .map-overlay {
       position: absolute;
-      top: 72.7%;     /* 이미지 내 빈 상자 Y축 위치 */
-      left: 9.1%;     /* 이미지 내 빈 상자 X축 위치 */
-      width: 81.8%;   /* 빈 상자 너비 비율 */
-      height: 11.8%;  /* 빈 상자 높이 비율 */
+      top: 72.7%;     /* 지도 위치 */
+      left: 9.1%;
+      width: 81.8%;
+      height: 11.8%;
       border-radius: 12px;
       overflow: hidden;
       background: #f7f7f7;
@@ -58,13 +57,13 @@
       border: none;
     }
 
-    /* 2) 길찾기 버튼 영역 오버레이 */
+    /* 2) 버튼 영역 오버레이 */
     .btn-overlay-group {
       position: absolute;
-      top: 85.6%;     /* 이미지 내 버튼 Y축 위치 */
-      left: 9.1%;     /* 이미지 내 버튼 X축 위치 */
-      width: 81.8%;   /* 버튼 영역 너비 */
-      height: 2.6%;   /* 버튼 높이 */
+      top: 85.6%;     /* 버튼 위치 */
+      left: 9.1%;
+      width: 81.8%;
+      height: 2.6%;
       display: flex;
       justify-content: space-between;
       gap: 2%;
@@ -86,12 +85,10 @@
 <body>
 
   <div class="card-container">
-    <!-- Base64 인코딩으로 HTML에 직접 탑재된 이미지 -->
-    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAU1A2QDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi46Gp4eJzo6Xst7h4ePJzptXW52fc1hfY2NaX2Nna4ePn6Ojp6vHy8vT19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLR ChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6 goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnA0tPU1dbX2Nna 4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAf8A23/4AAEQxD0E4AEEEQVR42uy9978dV343/M y5XW53v3vvfVe3925Lsi33jrvjhS3YsA0m2BQbTHpIgBAMhIT0m/yQfkgI
-      /* ... 중략 ... (고해상도 이미지 전체 데이터 포함) ... */
-      /9k=" alt="2부 초대장" class="card-img">
+    <!-- 무료 고품질 이미지 호스팅 링크를 적용하여 엑스박스 방지 -->
+    <img src="https://i.ibb.co/L5Y4J8g/card-2.jpg" alt="2부 초대장" class="card-img" onerror="this.src='card_2.jpg'">
 
-    <!-- 카페 헤이랑 도로명 주소 고정 지도 -->
+    <!-- 지도 위치 (경기 수원시 팔달구 창룡문로 110 검색 고정) -->
     <div class="map-overlay">
       <iframe 
         src="https://m.map.kakao.com/actions/searchView?q=%EA%B2%BD%EA%B8%B0%20%EC%88%98%EC%9B%90%EC%8B%9C%20%ED%8C%94%EB%8B%AC%EA%B5%AC%20%EC%B0%BD%EB%A3%A1%EB%AC%B8%EB%A1%9C%20110"
@@ -108,7 +105,6 @@
   </div>
 
   <script>
-    // 경기 수원시 팔달구 창룡문로 110 도로명 주소로 연동 고정
     const VENUE_ADDR = '경기 수원시 팔달구 창룡문로 110';
 
     function openNav(app) {
