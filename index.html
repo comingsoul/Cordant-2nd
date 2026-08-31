@@ -24,6 +24,8 @@
       max-width: 1082px; /* 원본 크기 이상 커지지 않도록 제한 */
       margin: 0 auto;
       background: #ffffff;
+      aspect-ratio: 1082 / 5153; /* 배경 이미지 원본 비율로 높이를 고정 (오버레이 %가 정확히 계산되도록) */
+      overflow: hidden;
     }
 
     .card-img {
