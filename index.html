@@ -20,7 +20,8 @@
 
 .card-container {
   position: relative;
-  width: 1082px; /* card_4.jpg의 원본 가로 픽셀 사이즈로 고정 (또는 이미지 원본 너비) */
+  width: 100%;           /* 화면 크기에 맞춰 꽉 차게 변경 */
+  max-width: 1082px;     /* PC 등 큰 화면에서는 1082px까지만 커지도록 제한 */
   margin: 0 auto;
   background: #ffffff;
 }
